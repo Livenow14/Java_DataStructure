@@ -1,5 +1,6 @@
 package section1_Inheritance.class4_2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ShapeApplication {
@@ -19,15 +20,36 @@ public class ShapeApplication {
             else if(command.equals("show")|| command.equals("showdetail"))
                 handleShow(command.equals("showdetail"));
             else if(command.equals("sort"))
-                handleSort();
+                Arrays.sort(shapes,0, n);
             else if(command.equals("exit"))
                 break;
         }
         kb.close();
     }
 
-    private void handleSort() {
-    }
+/*    private void handleSort(MyComparable[] shapes, int size) {
+        for (int i = size - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (shapes[j].compareTo(shapes[j + 1]) > 0) {
+                    MyComparable tmp = shapes[j];
+                    shapes[j] = shapes[i];
+                    shapes[i] = tmp;
+                }
+            }
+        }
+    }*/
+
+/*    private void handleSort() {
+        for(int i= n-1; i>0 ; i--){
+            for(int j=0; j<i; j++){
+                if(shapes[j].computeArea()>shapes[j+1].computeArea()){
+                    Shape tmp = shapes[j];
+                    shapes[j]= shapes[i];
+                    shapes[i]= tmp;
+                }
+            }
+        }
+    }*/
 
     private void handleShow(boolean detailed) {
         for(int i=0; i<n; i++){
