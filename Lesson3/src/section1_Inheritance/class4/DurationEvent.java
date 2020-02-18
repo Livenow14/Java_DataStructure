@@ -18,6 +18,8 @@ public class DurationEvent extends Event {
 
         return  title+", "+begin.toString()+"~"+end.toString();
     }
-
+    public MyDate getRepresentativeDate(){
+        return begin;
+    }
 
 }
