@@ -35,6 +35,51 @@ public class MyArrayList<T> {
     }
 
     public void add(T anEntry){
+        add(size, anEntry);
 
     }
+    public T get (int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
+        return theData[index];
+    }
+    public T remove (int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
+        T returnValue = theData[index];
+        for (int i = index + 1; i < size; i++) {
+            theData[i-1] = theData[i];
+        }
+        size--;
+        return returnValue;
+    }
+    public T set (int index, T newValue) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
+        T oldValue = theData[index];
+        theData[index] = newValue;
+        return oldValue;
+    }
+
+    public int indexOf(T anEntry){
+        for(int i=0; i<size ;i++)
+            if(theData[i].equals(anEntry))
+                return i;
+            return -1;
+    }
+
+    public static void main(String[] args) {
+        MyArrayList<String> test = new MyArrayList<>();
+
+        try {
+            test.add(1, "Hello");
+        }
+        catch ( ArrayIndexOutOfBoundsException e){
+            System.out.println("에러에러");
+        }
+    }
+
 }
